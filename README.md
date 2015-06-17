@@ -1,2 +1,22 @@
-# equalcountries
-Redrawing the world into 200 roughly equally populated countries
+<html>
+   <head>
+      <title>Online PHP Script Execution</title>
+   </head>
+	
+   <body>
+     
+
+<?php
+    $apiKey = 'AIzaSyDyf-WUxOkDdyUXLTNvjGSXal6mV0YAeJI';
+    $url = 'https://www.googleapis.com/language/translate/v2/languages?key=' . $apiKey;
+
+    $handle = curl_init($url);
+    curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);     //We want the result to be saved into variable, not printed out
+    $response = curl_exec($handle);                         
+    curl_close($handle);
+
+    print_r(json_decode($response, true));
+?>
+   </body>
+	
+</html>
